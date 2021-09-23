@@ -1,27 +1,36 @@
 import './App.css';
-import {useEffect, useState} from 'react';
-import GetData from './components/getData';
-import PeopleList from './components/PeopleList';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import Header from './components/Header';
+import CharacterList from './components/CharacterList';
+// import GetData from './components/GetData';
 
 function App() {
-  const [getPeople, setGetPeople] = useState([]);
+  const [getCharacters, setGetCharacters] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    GetData(getPeople, setGetPeople)
+    const fetchData = async () => {
+      setIsLoading(true);
+      const result = await axios(`https://swapi.dev/api/people`);
+
+      console.log('Found the info', result.data);
+
+      setGetCharacters(result.data);
+      setIsLoading(false);
+    }
+
+    fetchData();
   }, []);
-
-  useEffect(() => {
-    console.log('Found the info', getPeople);
-  }, [getPeople]);
 
   return (
     <div className="App">
       <header className="App-header">
-      Star Wars app
+      <Header />
       </header>
-      <div>
-        <p>List of people:</p>
-        <PeopleList getPeople = {getPeople} />
+      <div className="content">
+        <p className="character-title">CHARACTERS:</p>
+        <CharacterList isLoading={isLoading} getCharacters={getCharacters} />
       </div>
     </div>
   );
