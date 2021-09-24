@@ -13,14 +13,17 @@ const CharacterDetails = ({ character }) => {
       <p className="name-title">{character.name}</p>
       {moreDetails ? (
         <ul className="u-list">
-          <li className="list-info">
-            <strong>Gender:</strong> {character.gender}
+          <li>
+            <strong>Gender:</strong> <p className="list-info">{character.gender}</p>
           </li>
-          <li className="list-info">
-            <strong>Haircolour:</strong> {character.hair_color}
+          <li>
+            <strong>Hair colour:</strong> <p className="list-info"> {character.hair_color}</p>
           </li>
-          <li className="list-info">
-            <strong>Height:</strong> {character.height}
+          <li>
+            <strong>Eye colour:</strong> <p className="list-info">{character.eye_color} </p>
+          </li>
+          <li>
+            <strong>Height:</strong> <p className="list-info">{character.height} </p>
           </li>
         </ul>
       ) : null

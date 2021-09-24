@@ -33,6 +33,28 @@
   text-shadow: 0 0 1em #adadad;
 }
 
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.previous-page {
+  border: transparent;
+  background-color: #1414148e;
+  border-radius: 2em;
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
+.next-page {
+  border: transparent;
+  background-color: #1414148e;
+  border-radius: 2em;
+  margin-left: 1em;
+  margin-bottom: 1em;
+}
+
 .App-link {
   color: #61dafb;
 }

@@ -8,7 +8,7 @@
     margin-bottom: 1em;
     margin-left: auto;
     margin-right: auto;
-    width: 70%;
+    width: 65%;
 }
 
 .name-title {
@@ -28,5 +28,8 @@
 }
 
 .list-info {
+    display: flex;
+    flex-direction: column;
     text-transform: capitalize;
+    margin: 0;
 }

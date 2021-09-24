@@ -3,11 +3,12 @@ import CharacterDetails from "./CharacterDetails";
 
 const CharacterList = ({ getCharacters, isLoading }) => {
   const [characterArray, setCharacterArray] = useState([]);
-
+  
   useEffect(() => {
     setCharacterArray(getCharacters.results);
-    console.log("Character Array", characterArray);
+    console.log('Character Array', characterArray);
   },[getCharacters]);
+
 
   return isLoading ? (
     <h1>Loading...</h1>
@@ -27,18 +28,3 @@ const CharacterList = ({ getCharacters, isLoading }) => {
 
 export default CharacterList;
 
-// const PeopleList = (props) => {
-//     const [listOfPeople, setListOfPeople] = useState([]);
-
-//     useEffect(() => {
-//         setListOfPeople(props.getPeople);
-//         console.log("Listan är här ", listOfPeople)
-//     }, []);
-
-//     let dataList = listOfPeople.map((results, key) => {
-//         return (
-//             <div className="info-container" key={key}>
-//                     <p className="people-name">{results.name}</p>
-//             </div>
-//         )
-//     })
