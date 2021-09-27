@@ -8,7 +8,6 @@ const SearchComponent = ({ getCharacters, searchQuery, setSearchQuery }) => {
 
   useEffect(() => {
     setCharacterArray(getCharacters.results);
-    console.log("Character Array", characterArray);
   }, [getCharacters]);
 
   useEffect(() => {

@@ -6,7 +6,6 @@ const CharacterList = ({ getCharacters, isLoading }) => {
   
   useEffect(() => {
     setCharacterArray(getCharacters.results);
-    console.log('Character Array', characterArray);
   },[getCharacters]);
 
 

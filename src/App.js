@@ -18,7 +18,7 @@ function App() {
     if (pageNumber > 1) {
       setPageNumber(pageNumber - 1);
     }
-  };
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,8 +26,6 @@ function App() {
       const result = await axios(
         `https://swapi.dev/api/people/?page=${pageNumber}`
       );
-
-      console.log('Found the info', result.data);
 
       setGetCharacters(result.data);
       setIsLoading(false);
@@ -42,31 +40,34 @@ function App() {
         <Header />
       </header>
       <div className="content">
-      <p className="character-title">CHARACTERS:</p>
-        <SearchComponent getCharacters={getCharacters} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-        {searchQuery ? null : 
-        <CharacterList isLoading={isLoading} getCharacters={getCharacters} />
-        }
-        </div>
+        <p className="character-title">CHARACTERS:</p>
+        <SearchComponent
+          getCharacters={getCharacters}
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+        />
+        {searchQuery ? null : (
+          <CharacterList isLoading={isLoading} getCharacters={getCharacters} />
+        )}
+      </div>
       <div className="pagination">
-      {getCharacters.previous ?
-        <div className="previous-page" onClick={() => previousPage()}>
-          <IconButton aria-label="arrowback">
-            <ArrowBackIcon style={{ fill: "#ffffff" }} />
-          </IconButton>
-        </div>
-        : null
-      }
-        {getCharacters.next ? 
-        <div
-          className="next-page"
-          onClick={() => setPageNumber(pageNumber + 1)}>
-          <IconButton aria-label="arrowforward">
-            <ArrowForwardIcon style={{ fill: "#ffffff" }} /> 
-          </IconButton> 
-        </div>
-        : null
-        } 
+        {getCharacters.previous ? (
+          <div className="previous-page" onClick={() => previousPage()}>
+            <IconButton aria-label="arrowback">
+              <ArrowBackIcon style={{ fill: "#ffffff" }} />
+            </IconButton>
+          </div>
+        ) : null}
+        {getCharacters.next ? (
+          <div
+            className="next-page"
+            onClick={() => setPageNumber(pageNumber + 1)}
+          >
+            <IconButton aria-label="arrowforward">
+              <ArrowForwardIcon style={{ fill: "#ffffff" }} />
+            </IconButton>
+          </div>
+        ) : null}
       </div>
     </div>
   );
