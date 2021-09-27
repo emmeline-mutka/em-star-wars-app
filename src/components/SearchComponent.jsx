@@ -12,13 +12,13 @@ const SearchComponent = ({ getCharacters, searchQuery, setSearchQuery }) => {
   }, [getCharacters]);
 
   useEffect(() => {
-      if (searchQuery.length !== 0) {
-        const handleSearch = characterArray.filter((character) =>
+    if (searchQuery.length !== 0) {
+      const handleSearch = characterArray.filter((character) =>
         character.name.toLowerCase().includes(searchQuery)
-        );
-        setSearchResult(handleSearch);
+      );
+      setSearchResult(handleSearch);
     } else {
-        setSearchResult([])
+      setSearchResult([]);
     }
   }, [searchQuery]);
 
@@ -27,18 +27,15 @@ const SearchComponent = ({ getCharacters, searchQuery, setSearchQuery }) => {
   }
 
   return (
-    <div className="searchbar">
+    <div className="search-bar">
       <input
         type="text"
-        placeholder="Search"
+        placeholder="Search..."
         value={searchQuery}
         onChange={onChange}
       />
-      {searchResult.map(character => (
-           <CharacterDetails
-           key={character.name}
-           character={character}
-         />
+      {searchResult.map((character) => (
+        <CharacterDetails key={character.name} character={character} />
       ))}
     </div>
   );
